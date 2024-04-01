@@ -71,6 +71,11 @@ namespace BooruDatasetTagManager
 
         public void AddTag(string tag)
         {
+            if (tag.Contains("."))
+            {
+                return;
+            }
+
             int indexTagsList = IndexOfTagsList(tag);
             int indexList = IndexOfList(tag);
             if (indexTagsList != -1)
