@@ -14,6 +14,7 @@ using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Data;
 using Newtonsoft.Json;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BooruDatasetTagManager
 {
@@ -181,6 +182,41 @@ namespace BooruDatasetTagManager
 
                 return img.GetThumbnailImage(newWidth, newHeight, () => false, IntPtr.Zero);
             }
+        }
+
+        public static string[] GetFriendlyEnumValues<T>()
+        {
+            return Enum.GetNames(typeof(T)).Select(a => I18n.GetText(a)).ToArray();
+        }
+
+        public static int GetEnumIndexFromValue<T>(string value)
+        {
+            string[] values = Enum.GetNames(typeof(T));
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i].Equals(value))
+                    return i;
+            }
+            return -1;
+        }
+
+        public static T GetEnumItemFromFriendlyText<T>(string text)
+        {
+            string[] indexes = I18n.GetAllIndexes(text);
+            if (indexes.Length == 1)
+                return (T)Enum.Parse(typeof(T), indexes[0], true);
+            else if (indexes.Length > 1)
+            {
+                object result;
+                foreach (var item in indexes)
+                {
+                    if (Enum.TryParse(typeof(T), item, out result))
+                    {
+                        return (T)result;
+                    }
+                }
+            }
+            throw new InvalidEnumArgumentException("Cannot find Enum value");
         }
 
 

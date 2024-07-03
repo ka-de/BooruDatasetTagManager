@@ -21,15 +21,6 @@ namespace BooruDatasetTagManager
         StartWithAndContainsIncludeTranslations
     }
 
-    public enum AutocompleteMode_ZH_CN
-    {
-        不使用,
-        前缀字母符合,
-        前缀字母符合或者包含,
-        前缀字母符合或者前缀翻译符合,
-        字母包括或者翻译包含
-    }
-
     public enum AutocompleteSort
     {
         Alphabetical,
@@ -43,11 +34,6 @@ namespace BooruDatasetTagManager
         Alphabetical
     }
 
-    public enum AutocompleteSort_ZH_CN
-    {
-        字母,
-        频率
-    }
 
     public enum FilterType
     {
@@ -55,6 +41,12 @@ namespace BooruDatasetTagManager
         Or,
         Not,
         Xor
+    }
+
+    public enum ImagePreviewType
+    {
+        PreviewInMainWindow,
+        SeparateWindow
     }
 
     public enum NetworkUnionMode

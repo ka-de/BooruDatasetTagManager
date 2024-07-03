@@ -20,7 +20,7 @@ namespace BooruDatasetTagManager
         public AutocompleteMode AutocompleteMode { get; set; } = AutocompleteMode.StartWith;
         public AutocompleteSort AutocompleteSort { get; set; } = AutocompleteSort.Alphabetical;
         public bool FixTagsOnSaveLoad { get; set; } = true;
-        public int PreviewType { get; set; } = 0;
+        public ImagePreviewType PreviewType { get; set; } = ImagePreviewType.PreviewInMainWindow;
         //public bool FixTagsOnSave { get; set; } = true;
         public string SeparatorOnLoad { get; set; } = ",";
         public string SeparatorOnSave { get; set; } = ", ";
@@ -232,7 +232,8 @@ namespace BooruDatasetTagManager
                 new LanguageItem("Pashto", "ps"),
                 new LanguageItem("Persian", "fa"),
                 new LanguageItem("Polish", "pl"),
-                new LanguageItem("Portuguese (Portugal, Brazil)", "pt"),
+                new LanguageItem("Portuguese (Brazil)", "pt-BR"),
+                new LanguageItem("Portuguese (Portugal)", "pt-PT"),
                 new LanguageItem("Punjabi", "pa"),
                 new LanguageItem("Quechua", "qu"),
                 new LanguageItem("Romanian", "ro"),
